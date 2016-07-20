@@ -1,0 +1,39 @@
+alias ga='git add'
+alias gp='git push'
+alias gl='git log'
+alias gs='git status'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gm='git commit -m'
+alias gma='git commit -am'
+alias gb='git branch'
+alias gc='git checkout'
+alias gra='git remote add'
+alias grr='git remote rm'
+alias gpu='git pull'
+alias gcl='git clone'
+alias be='bundle exec'
+
+alias csd='cap staging deploy'
+alias cpd='cap production deploy'
+alias gmm='git merge master'
+alias gcp='git checkout production'
+alias gcm='git checkout master'
+alias gitpurge=$'git fetch --all -p; git branch -vv | grep ": gone]" | awk \'{ print $1 }\' | xargs -n 1 git branch -D'
+
+alias upgrade-rails='bundle update --source rails actionmailer actionpack actionview activejob activesupport activerecord railties activemodel'
+alias upgrade-rspec='bundle update --source rspec rspec-rails spring-commands-rspec factory_girl_rails poltergeist capybara shoulda-matchers vcr webmock launchy simplecov database_cleaner timecop'
+alias upgrade-capistrano='bundle update --source capistrano slackistrano sshkit'
+alias upgrade-gem="bundle update --source $*"
+
+alias xclip="xclip -selection c"
+alias random-password="tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1"
+alias playit='ansible-playbook -i hosts site.yml $*'
+alias topositionly='cd ~/projects/vagrant/apps/'
+alias logtail='tail -f -n 500 log/development.log'
+
+function windows_to_utf() {
+  iconv -f Windows-1250 -t utf-8 "$*" | sponge "$*"
+}
+
+alias utf8fix=windows_to_utf
