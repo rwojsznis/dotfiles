@@ -25,7 +25,7 @@ alias upgrade-rails='bundle update --source rails actionmailer actionpack action
 alias upgrade-rspec='bundle update --source rspec rspec-rails spring-commands-rspec factory_girl_rails poltergeist capybara shoulda-matchers vcr webmock launchy simplecov database_cleaner timecop'
 alias upgrade-capistrano='bundle update --source capistrano slackistrano sshkit'
 alias upgrade-gem="bundle update --source $*"
-
+alias freeze-strings="rubocop -a --only 'Style/FrozenStringLiteralComment' app/"
 alias xclip="xclip -selection c"
 alias random-password="tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1"
 alias playit='ansible-playbook -i hosts site.yml $*'
