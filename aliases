@@ -20,7 +20,7 @@ alias gmm='git merge master'
 alias gcp='git checkout production'
 alias gcm='git checkout master'
 alias gitpurge=$'git fetch --all -p; git branch -vv | grep ": gone]" | awk \'{ print $1 }\' | xargs -n 1 git branch -D'
-
+alias gus='git submodule update --recursive --remote'
 alias upgrade-rails='bundle update --source rails actionmailer actionpack actionview activejob activesupport activerecord railties activemodel'
 alias upgrade-rspec='bundle update --source rspec rspec-rails spring-commands-rspec factory_girl_rails poltergeist capybara shoulda-matchers vcr webmock launchy simplecov database_cleaner timecop'
 alias upgrade-capistrano='bundle update --source capistrano slackistrano sshkit'
@@ -31,7 +31,7 @@ alias random-password="tr -cd '[:alnum:]' < /dev/urandom | fold -w30 | head -n1"
 alias playit='ansible-playbook -i hosts site.yml $*'
 alias topositionly='cd ~/projects/vagrant/apps/'
 alias logtail='tail -f -n 500 log/development.log'
-
+alias prepdb='bin/rake db:migrate && bin/rake db:test:prepare'
 function windows_to_utf() {
   iconv -f Windows-1250 -t utf-8 "$*" | sponge "$*"
 }
