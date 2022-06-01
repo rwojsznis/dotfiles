@@ -46,7 +46,7 @@ alias cover="gotest -coverprofile=cover.tmp && go tool cover -html=cover.tmp && 
 alias d-grep="docker ps | grep"
 alias d-stop="docker stop"
 alias d-logs="docker logs -f --tail=500"
-
+alias redis-docker="docker run --rm -p 6379:6379 redis:7.0.0-alpine3.16"
 function d-bash --argument-names 'containerid'
     docker exec -ti $containerid bash
 end
