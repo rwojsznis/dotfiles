@@ -55,7 +55,6 @@ function p --argument-names 'processName'
         ps aux | grep -i $processName | grep -v grep
 end
 
-
 function murder --argument-names 'processName'
     # total count of processes found
     set cnt $( p $processName | wc -l)
@@ -71,4 +70,14 @@ function murder --argument-names 'processName'
     echo "Running search again:"
     p $processName
     echo -e "\n"
+end
+
+function newblogpost --argument-names 'postname'
+    set title (echo $postname | sed 's/ /-/g' | tr '[:upper:]' '[:lower:]')
+    echo "\
+---
+title: \""$postname"\"
+date: $(date -u +%Y-%m-%dT%H:%M:%S)
+---
+" | tee -a "content/post/$(date +%Y-%m-%d)-$title.md"
 end
